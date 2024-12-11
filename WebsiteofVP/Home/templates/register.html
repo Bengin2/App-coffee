@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 0;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input {
+            width: calc(100% - 12px);
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: beige;
+            font-size: medium;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        #showkq {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .login-link {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .login-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="boxform">
+            <form method="POST" action="{{ url_for('register') }}">
+                <h2>ĐĂNG KÝ</h2>
+                <div class="msg">{{ msg }}</div>
+                <input type="text" id="username" name="username" placeholder="Nhập Tên Tài Khoản" id="user" required><br>
+                <input type="password" id="new password" name="new password" placeholder="Nhập Mật Khẩu" id="pass" required><br>
+                <input type="password" id="repeat password" name="repeat password" placeholder="Nhập Lại Mật Khẩu" id="pass2" required><br>
+                <button type="submit">Đăng ký</button>
+                <a href="/login" class="login-link">Đã có tài khoản? Đăng nhập</a>
+            </form>
+        </div>
+        <div id="showkq"></div>
+    </div>
+    <script>
+        async function checkform() {
+            var user = document.getElementById("user").value;
+            var pass = document.getElementById("pass").value;
+            var pass2 = document.getElementById("pass2").value;
+
+            if (user === "") {
+                alert("Vui lòng nhập tên đăng nhập");
+                return false;
+            } else if (user.length < 8) {
+                alert("Vui lòng nhập tên đăng nhập >8 ký tự");
+                return false;
+            }
+
+            if (pass === "") {
+                alert("Vui lòng nhập mật khẩu");
+                return false;
+            } else if (pass.length < 8) {
+                alert("Vui lòng nhập mật khẩu >8 ký tự");
+                return false;
+            }
+
+            if (pass2 === "") {
+                alert("Vui lòng nhập mật khẩu xác nhận");
+                return false;
+            } else if (pass2 !== pass) {
+                alert("Mật khẩu không khớp. Vui lòng nhập lại.");
+                return false;
+            }
+
+            try {
+                const response = await fetch('/api/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({username: user, password: pass})
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    document.getElementById('showkq').innerHTML = `<h2>ĐĂNG KÝ THÀNH CÔNG</h2><p>Tên đăng nhập: <span>${user}</span></p>`;
+                    setTimeout(function() {
+                        window.location.href = '/login';
+                    }, 2000); 
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                alert('Có lỗi xảy ra khi đăng ký!');
+            }
+
+            return false;
+        }
+    </script>
+</body>
+</html>

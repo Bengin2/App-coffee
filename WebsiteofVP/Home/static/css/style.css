@@ -1,0 +1,321 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.mrtop{
+    margin-top: 30px;
+}
+.containerfull,
+.row {
+    float: left;
+    width: 100%;
+    
+}
+
+.containerfull img,
+.boxleft img,
+.boxright img,
+.boxnews {
+    width: 100%;
+}
+.containerfull .name-items{
+    font-size: 18px;
+    line-height: 1.6;
+    margin-top: 5px;
+    font-weight: bold;
+    color: black;
+}
+
+.container2 {
+    width: 700px;
+    margin: 0 auto;
+    color: white;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.container2 .box3 {
+    float: left;
+    width: 33.33%;
+    text-align: center;
+}
+
+.padd20 {
+    padding: 15px 0px;
+}
+
+.padd50 {
+    padding: 50px 0px;
+}
+
+.box50 {
+    float: left;
+    width: calc(50% - 30px);
+}
+
+.box25 {
+    float: left;
+    width: 25%;
+    width: calc(25% - 30px);
+}
+
+.box50 img,
+.box25 img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #9999;
+}
+.box25.mr15 img:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+.name-items:hover{
+    color: red;
+}
+section,
+.mr30 {
+    margin: 80px 0px;
+}
+
+.mr15 {
+    margin-right: 30px;
+}
+
+.mr5pt {
+    margin-right: 5%;
+}
+
+.mr2pt {
+    margin-right: 2%;
+}
+
+.boxnews {
+    float: left;
+    width: 32%;
+}
+
+.boxnews img {
+    border-radius: 10px;
+}
+
+.bg1 {
+    background-color: #fef8e6;
+}
+
+.boxleft {
+    float: left;
+    width: 45%;
+}
+
+.boxright {
+    float: left;
+    width: 48%;
+}
+
+.boxleft_bgw {
+    float: left;
+    width: 35%;
+}
+
+.boxright_bgw {
+    float: left;
+    width: 60%;
+}
+
+.boxleft_bgw_left {
+    float: right;
+    width: 80%;
+    margin-top: 25%;
+}
+
+p {
+    text-align: justify;
+    line-height: 150%;
+    color: #666666;
+}
+
+button {
+    background-color: #c8070f;
+    color: white;
+    font-size: 13pt;
+    font-weight: bold;
+    width: 100%;
+    border: none;
+    border-radius: 10px ;
+    padding: 10px 0px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+button:hover{
+    background-color: olive;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    font-size: 24pt;
+    margin: 0px;
+}
+
+h2 {
+    font-size: 18pt;
+    padding-left: 10px;
+    color: #444444;
+    border-left: 4px #FF9900 solid;
+}
+.warpper{
+    max-width: 1180px;
+    margin: 0 auto;
+}
+h3{
+    font-size: 18px;
+    color: black;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border: 1px solid black;
+    display: inline-block;
+    color: black;
+    font-weight: 600px;
+    
+}
+.headline{
+    text-align: center;
+    margin: 0;
+}
+.slide{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+
+}
+a{
+    text-decoration: none;
+}
+/* header */
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid #fff;
+    transition: all .5s;
+    width: 100%;
+    background-color: wheat;
+    margin: 0 auto;
+    padding: 0px;
+}
+header.fixed {
+    width: 100%;
+    background-color: wheat;
+    color: black;
+    box-shadow: 0 0 8px gray;
+}
+header.fixed a{
+    color: black;
+    
+}
+header.fixed .login a{
+    border: 2px solid black;
+}
+header.fixed nav ul li a{
+    color: black;
+    
+
+}
+nav{
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.logo img{
+    width: 200px;
+    display: block;
+}
+.main-menu ul li{
+    display: inline-block;
+    padding: 0 20px;
+}
+.main-menu ul li a:hover{
+    text-decoration: underline;
+    transition: 0.5s;
+
+}
+.main-menu ul a{
+    text-transform:uppercase ;
+    color: black;
+    font-weight: bold;
+}
+.logout a{
+    background-color: #c8070f;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 30px;
+    border: 2px solid black;
+    border-radius: 999px;
+    font-size: 18px;
+    transition: .3s;
+
+    
+}
+.logout a:hover{
+    background-color: olive;
+    color: white;
+}
+.login a{
+    background-color: #c8070f;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 30px;
+    border: 2px solid black;
+    border-radius: 999px;
+    font-size: 18px;
+    transition: .3s;
+}
+.login a:hover{
+    background-color: olive;
+    color: white;
+}
+.main-menu>.ul1>li:hover>.ul2{
+    display: block;
+}
+.main-menu .ul1 .ul2 {
+    position: absolute;
+    display: none;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    /* border-radius: 5px; */
+    width: 200px;
+    background-color: rgb(191, 194, 197);
+    box-shadow: 0 0 1 white;
+    text-align: center;
+}
+.main-menu .ul1 .ul2 a:hover{
+    
+    color:black;
+}
+.icon a{
+    color: black;
+    text-decoration: none;
+}
+
+footer{
+    min-height: 100px;
+    color: black;
+    background-color: wheat;
+    float: left;
+    width: 100%;
+}
+footer.cot{
+    float: left;
+    width: 33.33%;
+}
+
+
+
+

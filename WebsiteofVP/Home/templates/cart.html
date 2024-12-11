@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Obin Coffee</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cart.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="shortcut icon" href="img/logo.png">
+</head>
+
+<header>
+    <div class="inner-header container">
+        <nav>
+            <img src="{{ url_for('static', filename='img/logos/logo.png') }}" alt="" width="80">
+                <div class="logo">
+                    <a href="/"><img src="{{ url_for('static', filename='img/logoobin.png') }}" alt=""></a>
+                </div>
+            <div class="main-menu">
+                <ul class="ul1">
+                    <li><a href="{{ url_for('home') }}">Trang chủ</a></li>
+                    <li>
+                        <a href="/cafe">Cà Phê</a>
+                    </li>
+                    <li>
+                        <a href="/tra">Trà</a>
+                    </li>
+                    <li>
+                        <a href="/banhngot">Bánh ngọt</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="logout">
+                <a href="{{ url_for('logout')}}">Logout</a>
+            </div>
+        </nav>
+    </div>
+</header>
+<body>
+    <div class="containerfull padd20">
+        <div class="container2 ">
+            <div class="box3">154 cửa hàng khắp cả nước</div>
+            <div class="box3">Hotline: 1800 6936</div>
+            <div class="box3">Freeship từ 50.000 đ</div>
+        </div>
+    </div> 
+    <div class="boxcenter">
+        <section class="row">
+            <h1>Giỏ Hàng</h1>
+                <div class="container"></div>
+                    <div class="total">
+                        <p>Tổng Tiền : {{ total }} VNĐ </p>
+                        <p>Số lượng trong giỏ hàng: {{ number }}</p>
+                        
+                    </div>
+                    <div class="cart-left">
+                        
+                        <table>
+                            <tr>
+                                <th></th>
+                                <th>Tên Sản Phẩm</th>
+                                <th>Giá</th>
+                                <th>Số Lượng</th>
+                                <th>Thành Tiền</th>
+                                <th>Xóa</th>
+                            </tr>
+                            <tbody id="thongtingiohang">
+                                {% for item in cart %}
+                               
+                                <tr>
+                                    <td id = "img_id"><img src="{{ url_for('static', filename = item.image )}}" ></td>
+                                    <td>{{ item.name }}</td>
+                                    <td>{{ item.price }}</td>
+                                    <td>{{ item.quantity }}</td>
+                                    <td>{{ item.quantity * item.price }}</td>
+                                    <td><a href="{{ url_for('remove_item', id = item.id)}}">Xóa</a></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                            </tbody>
+                        </table>
+                        <br>
+                        <form method="POST" action="{{ url_for('clear_cart') }}">
+                            <button>Xóa hết</button>
+
+                        </form>
+                        
+                    </div>
+                    
+        </section>
+    </div>
+       
+    
+    <footer>
+    </footer>
+    <script> 
+        var arrhinh=["banner1.webp","banner2.webp","banner3.webp","banner4.webp"]
+        setInterval(loadimg,2700);
+        function loadimg(){
+            var i=document.getElementById("img").alt;
+            i++;
+            if(i==parseInt(arrhinh.length - 1)){
+                i=0;
+            }
+            document.getElementById("img").src="img/"+arrhinh[i];
+            document.getElementById("img").alt=i;
+        }
+    </script>
+    <!-- <script src="cart.js"></script> -->
+
+</body>
+
+</html>

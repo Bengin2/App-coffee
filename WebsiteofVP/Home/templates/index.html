@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Obin Coffee</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logos/logo.png') }}">
+    
+</head>
+
+
+<header>
+    
+    <div class="inner-header container">
+        <nav>
+            <img src="{{ url_for('static', filename='img/logos/logo.png') }}" alt="Logo" width="80">
+            <div class="logo">
+                <a href="index.html"><img src="{{ url_for('static', filename='img/logos/logoobin.png') }}" alt="Logo"></a>
+            </div>
+            <div class="main-menu">
+                <ul class="ul1">
+                    <li><a href="/">Trang chủ</a></li>
+                    <li>
+                        <a href="{{ url_for('login' )}}">Cà Phê</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('login') }}">Trà</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('login') }}">Bánh ngọt</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="login">
+                <a  href="/login">Đăng nhập</a>
+                <a  href="/register">Đăng ký</a>
+            </div>
+            <div class="icon padd20">
+                <a href="{{ url_for('login')}}"><i class="fa fa-shopping-cart" style="font-size:30px">:</i><span id="slsp"></span></a>
+            </div>
+           
+        </nav>
+    </div>
+    
+</header>
+
+<body onload="loadslsp()">
+    <div class="containerfull padd20">
+        <div class="container2 ">
+            <div class="box3">154 cửa hàng khắp cả nước</div>
+            <div class="box3">Hotline: 1800 6936</div>
+            <div class="box3">Freeship từ 50.000 đ</div>
+        </div>
+    </div>    
+    <div class="containerfull mrtop">
+
+    </div>
+    <div id="wrapper">
+        <div class="headline">
+            <h3>SẢN PHẨM BÁN CHẠY</h3>
+        </div>
+    </div>
+    <section class="containerfull">
+        <div class="container">
+            <div class="containerfull">
+                <div class="box50 mr15">
+                    <img src="{{ url_for('static', filename='img/products/sp1.webp') }}" alt="">
+                </div>
+                <div class="box25 mr15">
+                    <img src="{{ url_for('static', filename='img/products/sp2.webp') }}" alt="">
+                    <a href=""><div class="name-items">The Coffee House Sữa Đá</div></a>
+                    <div class="price-items">39.000 đ</div>
+                    <input type="hidden" name="price" value="39000">
+                    
+                    
+                </div>
+                <div class="box25 mr15">
+                    <img src="{{ url_for('static', filename='img/products/sp3.webp') }}" alt="">
+                     <a href=""><div class="name-items">The Coffee House Sữa Đá</div></a>
+                    <div class="price-items">39.000 đ</div>
+                    <input type="hidden" name="price" value="39000">
+                    
+                </div>
+                
+            </div>
+            <div class="containerfull mr30">
+                <div class="box25 mr15">
+                    <img src="{{ url_for('static', filename='img/products/sp1.webp') }}" alt="">
+                     <a href=""><div class="name-items">The Coffee House Sữa Đá</div></a>
+                    <div class="price-items">39.000 đ</div>
+                    <input type="hidden" name="price" value="39000">
+                    
+                </div>
+                <div class="box25 mr15">
+                    <img src="{{ url_for('static', filename='img/products/sp2.webp') }}" alt="">
+                     <a href=""><div class="name-items">The Coffee House Sữa Đá</div></a>
+                    <div class="price-items">39.000 đ</div>
+                    <input type="hidden" name="price" value="39000">
+                    
+                </div>
+                <div class="box25 mr15">
+                    <img src="{{ url_for('static', filename='img/products/sp3.webp') }}" alt="">
+                     <a href=""><div class="name-items">The Coffee House Sữa Đá</div></a>
+                    <div class="price-items">39.000 đ</div>
+                    <input type="hidden" name="price" value="39000">
+                    
+                </div>
+                <div class="box25 mr15">
+                    <img src="{{ url_for('static', filename='img/products/sp4.webp') }}" alt="">
+                     <a href=""><div class="name-items">The Coffee House Sữa Đá</div></a>
+                    <div class="price-items">39.000 đ</div>
+                    <input type="hidden" name="price" value="39000">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="wrapper">
+        <div class="headline">
+            <h3>CÀ PHÊ VIỆT NAM</h3>
+        </div>
+    </div>
+    <section class="containerfull">
+        <div class="container"> 
+            <div class="containerfull mr30">
+                <div class="box25 mr15">
+                    <img src="{{ url_for('static', filename='img/products/sp1.webp') }}" alt="">
+                     <a href=""><div class="name-items">The Coffee House Sữa Đá</div></a>
+                    <div class="price-items">39.000 đ</div>
+                    <input type="hidden" name="price" value="39000">
+                    
+                </div>
+                <div class="box25 mr15">
+                    <img src="{{ url_for('static', filename='img/products/sp2.webp') }}" alt="">
+                     <a href=""><div class="name-items">The Coffee House Sữa Đá</div></a>
+                    <div class="price-items">39.000 đ</div>
+                    <input type="hidden" name="price" value="39000">
+                    
+                </div>
+                <div class="box25 mr15">
+                    <img src="{{ url_for('static', filename='img/products/sp3.webp') }}" alt="">
+                     <a href=""><div class="name-items">The Coffee House Sữa Đá</div></a>
+                    <div class="price-items">39.000 đ</div>
+                    <input type="hidden" name="price" value="39000">
+                    
+                </div>
+                <div class="box25 mr15">
+                    <img src="{{ url_for('static', filename='img/products/sp4.webp') }}" alt="">
+                     <a href=""><div class="name-items">The Coffee House Sữa Đá</div></a>
+                    <div class="price-items">39.000 đ</div>
+                    <input type="hidden" name="price" value="39000">
+                    
+                </div>      
+            </div>
+        </div>
+    </section>
+    <div id="wrapper">
+        <div class="headline">
+            <h3>Trà Trái Cây</h3>
+        </div>
+    </div>
+    <section class="containerfull">
+        <div class="container"> 
+            <div class="containerfull mr30">
+                <div class="box25 mr15">
+                    <img src="{{ url_for('static', filename='img/tra1.webp') }}" alt="">
+                     <a href=""><div class="name-items">The Coffee House Sữa Đá</div></a>
+                    <div class="price-items">39.000 đ</div>
+                    <input type="hidden" name="price" value="39000">
+                    
+                </div>
+                <div class="box25 mr15">
+                    <img src="{{ url_for('static', filename='img/tra2.webp') }}" alt="">
+                     <a href=""><div class="name-items">The Coffee House Sữa Đá</div></a>
+                    <div class="price-items">39.000 đ</div>
+                    <input type="hidden" name="price" value="39000">
+                    
+                </div>
+                <div class="box25 mr15">
+                    <img src="{{ url_for('static', filename='img/tra3.webp') }}" alt="">
+                     <a href=""><div class="name-items">The Coffee House Sữa Đá</div></a>
+                    <div class="price-items">39.000 đ</div>
+                    <input type="hidden" name="price" value="39000">
+                    
+                </div>
+                <div class="box25 mr15">
+                    <img src="{{ url_for('static', filename='img/tra4.webp') }}" alt="">
+                     <a href=""><div class="name-items">The Coffee House Sữa Đá</div></a>
+                    <div class="price-items">39.000 đ</div>
+                    <input type="hidden" name="price" value="39000">
+                   
+                </div>      
+            </div>
+        </div>
+    </section>
+    <div id="wrapper">
+        <div class="headline">
+            <h3>Bánh ngọt</h3>
+        </div>
+    </div>
+    <section class="containerfull">
+        <div class="container"> 
+            <div class="containerfull mr30">
+                <div class="box25 mr15">
+                    <img src="{{ url_for('static', filename='img/banh1.webp') }}" alt="">
+                     <a href=""><div class="name-items">The Coffee House Sữa Đá</div></a>
+                    <div class="price-items">39.000 đ</div>
+                    <input type="hidden" name="price" value="39000">
+                    
+                </div>
+                <div class="box25 mr15">
+                    <img src="{{ url_for('static', filename='img/banh2.webp') }}" alt="">
+                     <a href=""><div class="name-items">The Coffee House Sữa Đá</div></a>
+                    <div class="price-items">39.000 đ</div>
+                    <input type="hidden" name="price" value="39000">
+                    
+                </div>
+                <div class="box25 mr15">
+                    <img src="{{ url_for('static', filename='img/banh3.webp') }}" alt="">
+                     <a href=""><div class="name-items">The Coffee House Sữa Đá</div></a>
+                    <div class="price-items">39.000 đ</div>
+                    <input type="hidden" name="price" value="39000">
+                    
+                </div>
+                <div class="box25 mr15">
+                    <img src="{{ url_for('static', filename='img/banh4.webp') }}" alt="">
+                     <a href=""><div class="name-items">The Coffee House Sữa Đá</div></a>
+                    <div class="price-items">39.000 đ</div>
+                    <input type="hidden" name="price" value="39000">
+                    
+                </div>      
+            </div>
+        </div>
+    </section>
+    <footer class="row" style="text-align: center;">
+        Designed By Tran van Phuoc
+        <br>
+        Phone Number: 01234567890
+        <br>
+        Email: tranp9436@gmail.com
+        <br>
+    </footer>
+    <script> 
+        var arrhinh=["banner1.webp","banner2.webp","banner3.webp","banner4.webp"]
+        setInterval(loadimg,2700);
+        function loadimg(){
+            var i=document.getElementById("img").alt;
+            i++;
+            if(i==parseInt(arrhinh.length - 1)){
+                i=0;
+            }
+            document.getElementById("img").src="{{ url_for('static', filename='img/') }}" + arrhinh[i];
+            document.getElementById("img").alt=i;
+        }
+    </script>
+    <script src="{{ url_for('static', filename='js/cart.js') }}"></script>
+
+</body>
+
+</html>
