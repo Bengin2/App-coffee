@@ -59,18 +59,18 @@ cake = [
     {"id": 4, "name": "Bánh mochi vị dâu", "price": 50000, "image": "img/banh4.webp"},
 ]
 
-tea = [
-    {"id": 1, "name": "Trà vải", "price": 39000, "image": "img/tra1.webp"},
-    {"id": 2, "name": "Trà hạt sen", "price": 45000, "image": "img/tra2.webp"},
-    {"id": 3, "name": "Trà đào", "price": 35000, "image": "img/tra3.webp"},
-    {"id": 4, "name": "Bánh đào nóng", "price": 30000, "image": "img/tra4.webp"},
+machiato = [
+    {"id": 1, "name": "Hồng Trà Sữa Trân Châu", "price": 39000, "image": "img/ts1.webp"},
+    {"id": 2, "name": "Trà Mắc Ca Trân Châu", "price": 35000, "image": "img/ts2.webp"},
+    {"id": 3, "name": "Trà Mắc Ca Trân Châu", "price": 35000, "image": "img/ts3.webp"},
+    {"id": 4, "name": "Trà Hạt Sen - Nóng", "price": 30000, "image": "img/ts4.webp"},
 
 ]
-teafruit = [
-    # {"id": 1, "name": "Trà vải", "price": 39000, "image": "img/tra1.webp"},
-    # {"id": 2, "name": "Trà hạt sen", "price": 45000, "image": "img/tra2.webp"},
-    # {"id": 3, "name": "Trà đào", "price": 35000, "image": "img/tra3.webp"},
-    # {"id": 4, "name": "Bánh đào nóng", "price": 30000, "image": "img/tra4.webp"},
+tea = [
+    {"id": 1, "name": "Trà Long Nhãn Hạt Sen", "price": 39000, "image": "img/tra1.webp"},
+    {"id": 2, "name": "Trà Hạt Sen", "price": 45000, "image": "img/tra2.webp"},
+    {"id": 3, "name": "Trà Đào Cam Sả", "price": 35000, "image": "img/tra3.webp"},
+    {"id": 4, "name": "Trà Hạt Sen - Nóng", "price": 30000, "image": "img/tra4.webp"},
     
 ]
 
@@ -126,7 +126,7 @@ def cafe():
 @login_required
 @app.route('/tra')
 def tra():
-    return render_template('tra.html',products=tea,foodtea = teafruit)
+    return render_template('tra.html',products=machiato,foodtea = tea)
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -160,7 +160,7 @@ def home():
     return render_template("home.html",
                            coffee_product = coffee,
                            cake_product = cake, 
-                           tea_product = tea)
+                           tea_product = machiato)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -272,6 +272,36 @@ def addcake():
 
 #thêm trà vào giỏ
 @login_required
+@app.route("/addmachiato",methods = ["POST"])
+def addmachiato():
+    id = int(request.form.get("id"))
+    quantity = int(request.form.get("quantity"))
+
+    cart = session.get("cart", [])
+    
+
+    for item in cart:
+        if item["id"] == id:
+
+            return redirect(url_for('cart'))
+    for itm in machiato:
+        if itm["id"] == id:
+            cart.append(
+                {
+                    "id": id,
+                    "name": itm["name"],
+                    "price": itm["price"],
+                    "image": itm["image"],
+                    "quantity": quantity
+                }
+            )
+            break
+
+    session["cart"] = cart
+    return redirect(url_for('cart'))   
+
+#thêm machiato vào giỏ
+@login_required
 @app.route("/addtea",methods = ["POST"])
 def addtea():
     id = int(request.form.get("id"))
@@ -299,6 +329,7 @@ def addtea():
 
     session["cart"] = cart
     return redirect(url_for('cart'))   
+
 
 @login_required
 @app.route("/cart")

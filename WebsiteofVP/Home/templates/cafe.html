@@ -7,15 +7,16 @@
     <title>Cà Phê Việt Nam</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/cafe.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/logos/logo.png') }}">
 </head>
 <body>
     <header>
         <div class="inner-header container">
             <nav>
-                <img src="{{ url_for('static', filename='img/logos/logo.png') }}" alt="" width="80">
+                <img src="{{ url_for('static', filename='img/logos/logo.png') }}" alt="Logo" width="80">
                 <div class="logo">
-                    <a href="/"><img src="{{ url_for('static', filename='img/logoobin.png') }}" alt=""></a>
+                    <img src="{{ url_for('static', filename='img/logos/logoobin.png') }}" alt="Logo" width="80">
                 </div>
                 <div class="main-menu">
                     <ul class="ul1">
@@ -58,7 +59,7 @@
                         <img src="{{ url_for('static', filename=product.image ) }}" alt="">
                         <a href=""><div class="name-items"><input type="hidden" name="id" value="{{ product.id }}"></div></a>
                         <div class="price-items" ><a name="name">{{ product.name }}</a></div>
-                        <input type="text" placeholder="quantity" name="quantity" value="{{ product.quantity }}">
+                        <input class = "quantity" type="text" placeholder="quantity" name="quantity" value="{{ product.quantity }}">
                         <div class="price" ><a name="price">{{ product.price }}</a></div>
                         <button type="submit">Thêm vào giỏ hàng</button>
                     </form>  

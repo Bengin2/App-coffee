@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trà Trái Cây</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/tra.css') }}">
     <img src="{{ url_for('static', filename='img/logos/logo.png') }}" alt="Logo" width="80">
 </head>
@@ -60,34 +61,19 @@
     <section class="containerfull">
         <div class="container">
             <div class="containerfull">
+                {% for product in foodtea%}
                 <div class="box25 mr15">
-                    <img src="{{ url_for('static', filename='img/tra1.webp') }}" alt="Logo" width="80">
-                    <a href=""><div class="name-items">The Coffee House Sữa Đá</div></a>
-                    <div class="price-items">39.000 đ</div>
-                    <input type="hidden" name="price" value="39000">
-                    <button>Thêm vào giỏ hàng</button>
+                    <form action="{{ url_for('addtea') }}" method="POST" >
+                        <img src="{{ url_for('static', filename=product.image ) }}" alt="">
+                        <a href=""><div class="name-items"><input type="hidden" name="id" value="{{ product.id }}"></div></a>
+                        <div class="price-items" ><a name="name">{{ product.name }}</a></div>
+                        <input class = "quantity" type="text" placeholder="quantity" name="quantity" value="{{ product.quantity }}">
+                        <div class="price" ><a name="price">{{ product.price }}</a></div>
+                        <button type="submit">Thêm vào giỏ hàng</button>
+                    </form>
+                  
                 </div>
-                <div class="box25 mr15">
-                    <img src="{{ url_for('static', filename='img/tra2.webp') }}" alt="">
-                    <a href=""><div class="name-items">The Coffee House Sữa Đá</div></a>
-                    <div class="price-items">39.000 đ</div>
-                    <input type="hidden" name="price" value="39000">
-                    <button>Thêm vào giỏ hàng</button>
-                </div>
-                <div class="box25 mr15">
-                    <img src="{{ url_for('static', filename='img/tra3.webp') }}" alt="">
-                    <a href=""><div class="name-items">The Coffee House Sữa Đá</div></a>
-                    <div class="price-items">39.000 đ</div>
-                    <input type="hidden" name="price" value="39000">
-                    <button>Thêm vào giỏ hàng</button>
-                </div>
-                <div class="box25 mr15">
-                    <img src="{{ url_for('static', filename='img/tra4.webp') }}" alt="">
-                    <a href=""><div class="name-items">The Coffee House Sữa Đá</div></a>
-                    <div class="price-items">39.000 đ</div>
-                    <input type="hidden" name="price" value="39000">
-                    <button>Thêm vào giỏ hàng</button>
-                </div>                             
+                {%endfor%}                             
             </div>
         </div>
     </section>
@@ -100,11 +86,11 @@
             <div class="containerfull">
                 {% for product in products%}
                 <div class="box25 mr15">
-                    <form action="{{ url_for('addtea') }}" method="POST" >
+                    <form action="{{ url_for('addmachiato') }}" method="POST" >
                         <img src="{{ url_for('static', filename=product.image ) }}" alt="">
                         <a href=""><div class="name-items"><input type="hidden" name="id" value="{{ product.id }}"></div></a>
                         <div class="price-items" ><a name="name">{{ product.name }}</a></div>
-                        <input type="text" placeholder="quantity" name="quantity" value="{{ product.quantity }}">
+                        <input class = "quantity" type="text" placeholder="quantity" name="quantity" value="{{ product.quantity }}">
                         <div class="price" ><a name="price">{{ product.price }}</a></div>
                         <button type="submit">Thêm vào giỏ hàng</button>
                     </form>  
